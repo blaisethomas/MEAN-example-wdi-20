@@ -49,8 +49,8 @@ function authInterceptorFactory($q, $location, authTokenFactory){
 
 angular.module('reviewApp')
 .factory('authFactory', authFactory)
-authFactory.$inject = ['$http', '$q', 'authTokenFactory']
-function authFactory($http, $q, authTokenFactory){
+authFactory.$inject = ['$http', '$q', 'authTokenFactory', '$window']
+function authFactory($http, $q, authTokenFactory, $window){
 	var authFactory = {}
 	authFactory.index = function(){
 		return $http.get('http://localhost:3000/api/users')
@@ -86,7 +86,8 @@ function authFactory($http, $q, authTokenFactory){
 	// get that user's info
 	authFactory.getUser = function(){
 		if(authTokenFactory.getToken()){
-			return $http.get('http://localhost:3000/api/me')
+			console.log("helloooo")
+			return $http.get('http://localhost:3000/api/me?token=' + $window.localStorage.getItem('token') )
 		} else {
 			return $q.reject({message: 'User has no token'})
 		}

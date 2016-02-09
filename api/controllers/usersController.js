@@ -93,6 +93,7 @@ function authenticateUser(req, res) {
 					expiresInMinutes: 1440
 				})
 				// now let's actually give it to them!
+				console.log("logged in")
 				res.json({ success: true, message: "enjoy your token!", token: token})
 			}
 		}
@@ -117,7 +118,7 @@ function checkUser(req, res, next){
 	}
 	// this is going to run EVERY time our API is hit
 	// we want to check if the user is logged in here
-	console.log("checking is user is logged in")
+	console.log("checking if user is logged in")
 }
 
 module.exports = {

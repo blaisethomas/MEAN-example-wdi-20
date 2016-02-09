@@ -5,7 +5,6 @@ UsersController.$inject = ['$state', 'authFactory', '$rootScope']
 
 function UsersController($state, authFactory, $rootScope) {
 	var vm = this
-	vm.hi = "HELLO!"
 	vm.user = {}
 	vm.loggedIn = null
 	vm.signup = signup
