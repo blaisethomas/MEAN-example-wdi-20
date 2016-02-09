@@ -3,4 +3,5 @@ angular.module('reviewApp')
 
 function UsersController() {
 	var self = this
+	self.hi = "Hello, World!"
 }
