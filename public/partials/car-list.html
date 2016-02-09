@@ -1,0 +1,31 @@
+<h1> Here be all the cars</h1>
+
+
+<h1>Add Car</h1>
+<div class="panel panel-default">
+	<div class="panel-heading"><h3 class="panel-title">Add A New Car</h3></div>
+	<div class="panel-body">
+		<form id="new-car-form" ng-submit="carsCtrl.addCar(carsCtrl.newCar.make,carsCtrl.newCar.model,carsCtrl.newCar.year)">
+			<div class="form-group">    
+		    	<input type="text" name="make" ng-model="carsCtrl.newCar.make" placeholder="Make" class="form-control">
+		    </div>
+			<div class="form-group">
+				<input type="text" name="model" ng-model="carsCtrl.newCar.model" placeholder="Model" class="form-control">
+			</div>
+			<div class="form-group">
+				<input type="number" name="year" ng-model="carsCtrl.newCar.year" placeholder="Year" class="form-control">
+			</div>
+			<div class="text-center">
+			<button type="submit" class="btn btn-info btn-block">Add Car</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<h2 ng-show="carsCtrl.cars.length">All Cars:</h2>
+<div class="list-group">
+	<a ng-repeat="car in carsCtrl.cars" href="#/cars/{{ car._id }}" class="list-group-item">
+  		<h3 class="list-group-item-heading">{{ car.make }} {{ car.model }}</h3>
+  		<p class="list-group-item-text">{{ car.year }}</p>
+  	</a>
+</div>
