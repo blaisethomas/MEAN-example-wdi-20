@@ -2,7 +2,8 @@ var express = require('express')
 var app = express()
 var bodyParser = require('body-parser')
 var morgan = require('morgan')
-var port = process.env.PORT || 8080
+var path = require('path')
+var port = process.env.PORT || 3000
 var mongoose = require('mongoose')
 var cors = require('cors')
 var apiRouter = require('./api/routes/userRoutes')
@@ -13,6 +14,7 @@ mongoose.connect('mongodb://localhost:27017/node-crm-app')
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json());
+// app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(morgan('dev'))
 
