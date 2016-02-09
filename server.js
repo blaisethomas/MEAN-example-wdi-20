@@ -1,12 +1,12 @@
-var express = require('express')
-var app = express()
-var bodyParser = require('body-parser')
-var morgan = require('morgan')
-var path = require('path')
-var port = process.env.PORT || 3000
-var mongoose = require('mongoose')
-var cors = require('cors')
-var apiRouter = require('./api/routes/userRoutes')
+var express = require('express'),
+	app = express(),
+	logger = require('morgan'),
+	path = require('path'),
+	mongoose = require('mongoose'),
+	bodyParser = require('body-parser'),
+	cors = require('cors'),
+	apiRouter = require('./api/routes/userRoutes'),
+	port = process.env.PORT || 3000
 
 mongoose.connect('mongodb://localhost:27017/node-crm-app')
 
@@ -14,9 +14,14 @@ mongoose.connect('mongodb://localhost:27017/node-crm-app')
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json());
-// app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')))
 
-app.use(morgan('dev'))
+app.use(logger('dev'))
+
+app.get('/', function(req,res){
+	console.log('getting index?')
+	res.render('index')
+})
 
 app.use('/api', apiRouter) // whenever we get a request starting with /api
 
