@@ -1,1 +1,1 @@
-angular.module('reviewApp', [])
+angular.module('reviewApp', ['ui.router'])
