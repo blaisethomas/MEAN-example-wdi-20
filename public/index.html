@@ -14,24 +14,9 @@
 	<script src="js/router.js"></script>
 </head>
 <body >
-	<div ng-controller="UsersController as usersCtrl">
-		<nav class="navbar navbar-default">
-		<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" ui-sref="home">Review Cars App with Auth</a>
-		</div>
-			<ul class="nav navbar-nav navbar-right">
-				<li ng-if="usersCtrl.loggedIn"><a>Hi {{usersCtrl.user.username}}</a></li>
-				<li ng-if="usersCtrl.loggedIn"><a ui-sref="cars">Cars!</a></li> 
-				<li ng-if="!usersCtrl.loggedIn"><a ui-sref="login">Login</a></li>
-				<li ng-if="!usersCtrl.loggedIn"><a ui-sref="signup">Sign up	</a></li>
-				<li ng-if="usersCtrl.loggedIn"><a ng-click="usersCtrl.logout()">Log out</a></li>  
-			</ul>
-			</div>
-		</nav>
-	</div>
+	<nav-bar></nav-bar>
 
-		<!-- rendering the views inside a div -->
+	<!-- rendering the views inside a div -->
 	<div class="container">
 		<div ui-view></div>
 	</div>
@@ -40,9 +25,6 @@
 	<footer>
 		<hr>
 	</footer>
-
-	
-
 
 </body>
 </html>
