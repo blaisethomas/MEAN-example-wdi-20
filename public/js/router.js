@@ -31,8 +31,13 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 			controller: 'UsersController as usersCtrl'
 		})
 		.state('cars', {
-      url: '/cars',
-      templateUrl: 'partials/car-list.html',
+			url: '/cars',
+			templateUrl: 'partials/car-list.html',
 			controller: 'CarsController as carsCtrl'
-    })
+		})
+		.state('detail', {
+			url: '/cars/:carId',
+			templateUrl: 'partials/car-detail.html',
+			controller: 'CarDetailsController as carDetailsCtrl'
+		})
 }
