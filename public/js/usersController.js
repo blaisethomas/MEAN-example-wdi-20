@@ -1,9 +1,9 @@
 angular.module('reviewApp')
 	.controller('UsersController', UsersController)
 
-UsersController.$inject = ['$state', 'authFactory', '$rootScope']
+UsersController.$inject = ['$state', 'authFactory', '$rootScope', '$window']
 
-function UsersController($state, authFactory, $rootScope) {
+function UsersController($state, authFactory, $rootScope, $window) {
 	var vm = this
 	vm.user = {}
 	vm.loggedIn = null
@@ -22,6 +22,7 @@ function UsersController($state, authFactory, $rootScope) {
 	function logout(){
 		$state.go('loggedOut')
 		authFactory.logout();
+		$window.location.reload();
 	}
 
 	function getUser(){
