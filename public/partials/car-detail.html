@@ -1,0 +1,38 @@
+<div class="panel panel-default" ng-hide="carDetailsCtrl.editing">
+	<div class="panel-heading">
+		<h3 class="panel-title">Single Car:</h3>
+	</div>
+	<div class="panel-body">
+		<h1>{{ carDetailsCtrl.car.make }} {{ carDetailsCtrl.car.model }}</h1>
+		<h3><strong>Year</strong>: {{ carDetailsCtrl.car.year }}</h3>
+		<h3><strong>ID</strong>: {{ carDetailsCtrl.car._id }}</h3>
+	</div>
+	<div class="text-center">
+	<button class="btn btn-info btn-block" ng-click="carDetailsCtrl.editing=!carDetailsCtrl.editing">Edit Car</button>
+	<!-- DELETE BUTTON -->
+	<button class="btn btn-danger btn-block" ng-click="carDetailsCtrl.removeCar(carDetailsCtrl.car._id)">Delete Car</button>
+	<!--  -->
+	</div>
+</div>
+
+<div class="panel panel-default" ng-show="carDetailsCtrl.editing">
+<h3><strong>ID</strong>: {{ carDetailsCtrl.car._id }}</h3>
+	<div class="panel-heading"><h3 class="panel-title">Edit Car</h3></div>
+	<div class="panel-body">
+		<form class="" ng-submit="carDetailsCtrl.updateCar(carDetailsCtrl.car._id, carDetailsCtrl.car.make, carDetailsCtrl.car.model, carDetailsCtrl.car.year)">
+			<div class="form-group">    
+		    	<input type="text" name="make" ng-model="carDetailsCtrl.car.make" class="form-control">
+		    </div>
+			<div class="form-group">
+				<input type="text" name="model" ng-model="carDetailsCtrl.car.model" placeholder="Model" class="form-control">
+			</div>
+			<div class="form-group">
+				<input type="number" name="year" ng-model="carDetailsCtrl.car.year" placeholder="Year" class="form-control">
+			</div>
+			<div class="text-center">
+				<button type="submit" class="btn btn-info btn-block">Update Car</button>
+			</div>
+			
+		</form>
+	</div>
+</div>

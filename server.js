@@ -1,12 +1,12 @@
-var express = require('express')
-var app = express()
-var bodyParser = require('body-parser')
-var morgan = require('morgan')
-var path = require('path')
-var port = process.env.PORT || 3000
-var mongoose = require('mongoose')
-var cors = require('cors')
-var apiRouter = require('./api/routes/userRoutes')
+var express 	= require('express'),
+	app 		= express(),
+	bodyParser 	= require('body-parser'),
+	morgan 		= require('morgan'),
+	path 		= require('path'),
+	port 		= process.env.PORT || 3000,
+	mongoose 	= require('mongoose'),
+	cors 		= require('cors'),
+	apiRouter 	= require('./api/routes/userRoutes')
 
 mongoose.connect('mongodb://localhost:27017/node-crm-app')
 
